@@ -9,7 +9,7 @@ echo "Please type the commit message: "
 read message
 echo "Committing..."
 git commit -m "$message"
-git log
 echo "Pushing to Github..."
 git push -u origin main
+git log
 echo "All done!"

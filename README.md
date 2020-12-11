@@ -57,7 +57,7 @@ Incorrect inputs will be displayed to the user and will say the kind of input we
 
 ## Implementation Plan
 ### Trello SDP Board
-[Trello Board]()
+[Trello Board](https://trello.com/b/YOqtuuu1/cmgterminalapp)
 
 ## Help Documentation
 ### Installation
