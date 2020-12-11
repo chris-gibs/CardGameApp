@@ -36,7 +36,7 @@ Allows user to enter player details
 #### Edit Player details
 Allows user to edit player details if they have the password for that player or are the admin
 #### Delete Player
-
+Allows user with password access or admin to delete player from player list
 
 ### Leaderboard Features
 #### Display Leaderboard
