@@ -11,5 +11,4 @@ echo "Committing..."
 git commit -m "$message"
 echo "Pushing to Github..."
 git push -u origin main
-git log
 echo "All done!"
