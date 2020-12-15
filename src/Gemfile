@@ -1,12 +1,10 @@
-# Gemfile
-
 source 'https://rubygems.org'
 
+gem 'pastel'
 gem 'rspec'
 gem 'tty-color'
-gem 'pastel'
-gem 'tty-screen'
 gem 'tty-cursor'
-gem 'wisper'
-gem 'tty-reader'
 gem 'tty-prompt'
+gem 'tty-reader'
+gem 'tty-screen'
+gem 'wisper'
