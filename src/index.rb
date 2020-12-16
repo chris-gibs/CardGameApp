@@ -6,16 +6,16 @@
 # Requires
 require "tty-prompt"
 require_relative 'game'
-# Menus
 
 $prompt = TTY::Prompt.new
-
-def main_menu_selection
-    return $prompt.select("Please choose from the following options: ",
-    ["Player Options", "New Game", "Leaderboard", "Help", "Exit"])
-end
-
 class MainMenu
+    def self.display_help
+        puts "Help coming soon!"
+    end
+    def self.main_menu_selection
+        return $prompt.select("Please choose from the following options: ",
+        ["Player Options", "New Game", "Leaderboard", "Help", "Exit"])
+    end
     selection = ""
     while selection != "Exit"
         selection = main_menu_selection
@@ -28,8 +28,7 @@ class MainMenu
         when "Leaderboard"
             puts "Leaderboard coming soon!"
         when "Help"
-            puts "Help coming soon!"
+            display_help
         end
-        system "clear"
     end
 end

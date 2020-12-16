@@ -38,7 +38,6 @@ class Game
             when "Rules"
                 display_rules
             end
-            system "clear"
         end
     end
 end
