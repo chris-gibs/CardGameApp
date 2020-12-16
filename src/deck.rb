@@ -5,9 +5,8 @@ class Deck
     
     end
     def build_deck
+        #include shuffle
     end
-    def shuffle_deck
-    end
-    def draw_card
+    def deal_card
     end
 end

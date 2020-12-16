@@ -1,17 +1,45 @@
+# Require
+require "tty-prompt"
+
+require_relative 'deck'
+
 # Game class
 
-class Game(players)
+class Game
     def initialize
-        @players = players
+        @players_in_game = []
         @dealers_hand = []
-        @deck = []
+
     end
-    def build_deck
-        # include shuffle in here
-        #@deck <<
+    def self.hit
+        puts "Hit coming soon!"
     end
-    def draw_card
-    
+    def self.stand
+        puts "Stand coming soon!"
+    end
+    def self.display_rules
+        puts "Rules coming soon!"
+    end
+    # Game Menu
+    def self.game_menu_selection
+        return $prompt.select("New Game has begun! Pick an option: ",
+        ["Hit", "Stand", "Rules", "Back"])
+    end
+    def self.game_menu
+        selection = ""
+        while selection != "Back"
+            selection = game_menu_selection
+            system "clear"
+            case selection
+            when "Hit"
+                hit
+            when "Stand"
+                stand
+            when "Rules"
+                display_rules
+            end
+            system "clear"
+        end
     end
 end
 

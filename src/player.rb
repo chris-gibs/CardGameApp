@@ -1,3 +1,5 @@
+# Require
+
 # Player class
 
 
@@ -5,24 +7,33 @@ class Player(name, password)
     def initialize
         @name = name
         @password = password
-        @hand = []
         @games = 0
         @wins = 0
         @score = 1000
-        @fold = false
+        @hand = []
+        @hand_value = 0
         @has_bet = false
+        @lost = false
+        @blackjack = false
     end
-    def win(pot)
+    def win
         puts "Winner winner, chicken dinner!"
         @games += 1
         @wins += 1
-        @score = score + pot
+        @score = score_change
     end
     def lose
         puts "Better luck next time!"
         @games += 1
+        @score = score_change
     end
-    def leaderboard_details
+    def bet
+    
+    end
+    def load_from_file
+
+    end
+    def save_to_file
 
     end
 end
