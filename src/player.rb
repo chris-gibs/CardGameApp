@@ -9,6 +9,8 @@ class Player(name, password)
         @games = 0
         @wins = 0
         @score = 1000
+        @fold = false
+        @has_bet = false
     end
     def win(pot)
         puts "Winner winner, chicken dinner!"
@@ -19,5 +21,8 @@ class Player(name, password)
     def lose
         puts "Better luck next time!"
         @games += 1
+    end
+    def leaderboard_details
+
     end
 end
