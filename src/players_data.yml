@@ -1,0 +1,7 @@
+---
+- :name: Player 1
+  :password: password1
+- :name: Player 2
+  :password: password2
+- :name: Player 3
+  :password: password3

@@ -1,5 +1,5 @@
 # Require
-require "tty-prompt"
+require 'tty-prompt'
 
 # Variables
 players_in_game = []
@@ -9,7 +9,7 @@ def build_deck
     #include shuffle
 end
 def deal_card
-    
+
 end
 def display_game
     Player.player_game_details

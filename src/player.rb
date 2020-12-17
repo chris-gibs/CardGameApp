@@ -1,5 +1,5 @@
 # Require
-require "tty-prompt"
+require 'tty-prompt'
 # Player class
 
 

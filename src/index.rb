@@ -3,20 +3,28 @@
 # By Christopher Gibson
 
 # Requires
-require "tty-prompt"
+require 'tty-prompt'
+require 'yaml'
 require_relative './game'
 require_relative './player'
-require_relative './deck'
 require_relative './leaderboard'
 
 # Declarations
 $prompt = TTY::Prompt.new
 
 # I/O methods
-def get_players_file
-    file = gets.chomp
-    players_file = IO.binread(file)
-end
+
+# Write initial player info to file
+players = [{name: "Player 1", password: "password1"},
+{name: "Player 2", password: "password2"},
+{name: "Player 3", password: "password3"}]
+
+File.open("players_data.yml", "w") {|file| file.write(players.to_yaml)}
+
+# Get saved player data from file
+players_file = YAML.load(File.read("players_data.yml")) 
+p players_file
+
 def display_help
     puts "Help coming soon!"
 end
