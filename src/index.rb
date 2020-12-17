@@ -11,19 +11,23 @@ require_relative './leaderboard'
 
 # Declarations
 $prompt = TTY::Prompt.new
+system 'clear'
 
-# I/O methods
+def create_player
+    # Create player object and store in players_file
+    puts "Please enter new player name:"
+    name = gets.chomp
+    puts "Please enter new player password:"
+    password = gets.chomp
+    File.open("players_file.yml", "a") {|file| file.write(Player.new(name, password).to_yaml)}
+end
+def edit_player
+    player_info = YAML.load(File.read("players_file.yml"))
+    p player_info
+end
+def delete_player
 
-# Write initial player info to file
-players = [{name: "Player 1", password: "password1"},
-{name: "Player 2", password: "password2"},
-{name: "Player 3", password: "password3"}]
-
-File.open("players_data.yml", "w") {|file| file.write(players.to_yaml)}
-
-# Get saved player data from file
-players_file = YAML.load(File.read("players_data.yml")) 
-p players_file
+end
 
 def display_help
     puts "Help coming soon!"
@@ -83,14 +87,17 @@ def player_menu
         system "clear"
         case selection
         when "Create new player"
-            puts "Create coming soon!"
+            create_player
         when "Edit player details"
-            puts "Edit coming soon!"
+            edit_player
         when "Delete player"
             puts "Delete coming soon!"
         end
     end
 end
+# Greeting
+puts "Welcome to my Card Game App!"
+sleep 2
 # Main Menu
 def main_menu_selection
     return $prompt.select("Please choose from the following options: ",
@@ -104,10 +111,14 @@ while selection != "Exit"
     when "Player Options"
         player_menu
     when "New Game"
+        number_of_players
+        build_deck
         game_menu
     when "Leaderboard"
         puts "Leaderboard coming soon!"
     when "Help"
         display_help
     end
+    puts "Goodbye!"
+    sleep 2
 end

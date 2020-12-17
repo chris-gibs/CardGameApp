@@ -16,6 +16,7 @@ class Player
         @has_bet = false
         @lost = false
         @blackjack = false
+        #@players_index = players.length - 1
     end
     def self.win
         puts "Winner winner, chicken dinner!"
@@ -37,7 +38,7 @@ class Player
     def self.save_to_file
 
     end
-    def player_game_details
+    def self.player_game_details
         puts "#{@name}    #{@hand}    #{@bet}"
     end
 end
