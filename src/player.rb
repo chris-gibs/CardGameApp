@@ -1,10 +1,10 @@
 # Require
-
+require "tty-prompt"
 # Player class
 
 
-class Player(name, password)
-    def initialize
+class Player
+    def initialize(name, password)
         @name = name
         @password = password
         @games = 0
@@ -12,28 +12,32 @@ class Player(name, password)
         @score = 1000
         @hand = []
         @hand_value = 0
+        @bet = 0
         @has_bet = false
         @lost = false
         @blackjack = false
     end
-    def win
+    def self.win
         puts "Winner winner, chicken dinner!"
         @games += 1
         @wins += 1
         @score = score_change
     end
-    def lose
+    def self.lose
         puts "Better luck next time!"
         @games += 1
         @score = score_change
     end
-    def bet
-    
+    def self.bet
+        
     end
-    def load_from_file
+    def self.load_from_file
 
     end
-    def save_to_file
+    def self.save_to_file
 
+    end
+    def player_game_details
+        puts "#{@name}    #{@hand}    #{@bet}"
     end
 end
