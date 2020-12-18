@@ -29,15 +29,6 @@ class Player
         @games += 1
         @score = score_change
     end
-    def self.bet
-        
-    end
-    def self.load_from_file
-
-    end
-    def self.save_to_file
-
-    end
     def self.player_game_details
         puts "#{@name}    #{@hand}    #{@bet}"
     end

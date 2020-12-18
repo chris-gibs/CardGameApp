@@ -1,21 +1,28 @@
 # Require
 require 'tty-prompt'
+require 'playing_cards'
 
 # Variables
 players_in_game = []
 dealers_hand = []
 # Game methods
 def number_of_players
-    puts "Please enter number of players: "
-    number = gets.chomp.to_i
-    while number.between?(1, 4)
-        
+    while false
+        puts "Please enter number of players (Between 1 and 4): "
+        number = gets.chomp.to_i
+        if number.between?(1, 4)
+            puts "That is correct!"
+            true
+        else
+            puts "That is incorrect! Enter a number between 1 and 4:"
+        end
     end
 end
 def build_deck
     #include shuffle
-    deck = BlackjackCards::Deck.new()
+    deck = BlackjackCards::Deck.new
     p deck
+    deck.cards.count
 end
 def deal_card
 

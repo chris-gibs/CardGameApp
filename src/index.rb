@@ -5,28 +5,37 @@
 # Requires
 require 'tty-prompt'
 require 'yaml'
+require 'io/console'
 require_relative './game'
 require_relative './player'
 require_relative './leaderboard'
 
 # Declarations
 $prompt = TTY::Prompt.new
-system 'clear'
-
+system "clear"
+@players = []
+@player_hash = {}
 def create_player
     # Create player object and store in players_file
     puts "Please enter new player name:"
     name = gets.chomp
     puts "Please enter new player password:"
-    password = gets.chomp
-    File.open("players_file.yml", "a") {|file| file.write(Player.new(name, password).to_yaml)}
+    password = STDIN.noecho(&:gets).chomp
+    player = Player.new(name, password)
+    player.instance_variables.each {|var| @player_hash[var.to_s.delete("@")] = player.instance_variable_get(var) }
+    #@players << @player_hash
+    #p @players
+    File.open("./players_file.yml", "a") {|file| file.write(@player_hash.to_yaml)}
 end
 def edit_player
-    player_info = YAML.load(File.read("players_file.yml"))
-    p player_info
+    # Printing array of players to screen for testing
+    
+    # File.open("./players_file.yml", "r") {|file| @players << file}
+    Psych.load_stream("./players_file.yml") {|player| @players << player}
+    p @players
 end
 def delete_player
-
+    
 end
 
 def display_help
@@ -97,7 +106,7 @@ def player_menu
 end
 # Greeting
 puts "Welcome to my Card Game App!"
-sleep 2
+sleep 1.5
 # Main Menu
 def main_menu_selection
     return $prompt.select("Please choose from the following options: ",
@@ -119,6 +128,7 @@ while selection != "Exit"
     when "Help"
         display_help
     end
-    puts "Goodbye!"
-    sleep 2
 end
+puts "Goodbye!"
+sleep 1
+system "clear"

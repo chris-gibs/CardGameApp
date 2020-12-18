@@ -35,7 +35,7 @@ PLATFORMS
 
 DEPENDENCIES
   pastel (~> 0.8.0)
-  playing_cards (~> 0.0.2)
+  playing_cards
   rspec (~> 3.10)
   tty-color (~> 0.6.0)
   tty-cursor (~> 0.7.1)
