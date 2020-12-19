@@ -1,3 +1,5 @@
+# player.rb includes Player class and player option functions
+
 # Require
 require 'tty-prompt'
 # Player class

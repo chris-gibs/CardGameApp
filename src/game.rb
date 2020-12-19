@@ -3,7 +3,7 @@ require 'tty-prompt'
 require 'playing_cards'
 
 # Variables
-players_in_game = []
+@players_in_game = []
 dealers_hand = []
 # Game methods
 def number_of_players

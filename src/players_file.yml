@@ -1,18 +1,6 @@
 ---
-name: test3
-password: q
-games: 0
-wins: 0
-score: 1000
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-lost: false
-blackjack: false
----
-name: test1q
-password: q
+name: test1
+password: e
 games: 0
 wins: 0
 score: 1000
@@ -24,7 +12,7 @@ lost: false
 blackjack: false
 ---
 name: test2
-password: q
+password: r
 games: 0
 wins: 0
 score: 1000
