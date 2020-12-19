@@ -1,4 +1,52 @@
 ---
+name: test3
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test4
+password: r
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test3
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test4
+password: r
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
 name: test1
 password: e
 games: 0
@@ -11,8 +59,80 @@ has_bet: false
 lost: false
 blackjack: false
 ---
-name: test2
+name: test3
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test4
 password: r
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test1
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test3
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test4
+password: r
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test1
+password: e
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test6
+password: w
 games: 0
 wins: 0
 score: 1000

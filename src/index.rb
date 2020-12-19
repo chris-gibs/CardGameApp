@@ -26,97 +26,19 @@ main_menu_options = ["Player Options", "New Game", "Leaderboard", "Help", "Exit"
 @new_game_options = ["Hit", "Stand", "Rules", "Back"]
 @leaderboard_menu_name = "Leaderboard Options:"
 @leaderboard_menu_options = ["Display Leaderboard", "Search Leaderboard", "Back"]
-@edit_player_menu_name = "Match found! what do you want to change?"
+@edit_player_menu_name = "Edit Player Options"
 @edit_player_menu_options = ["Name", "Password", "Back"]
 
 # Greeting
 puts "Welcome to my Card Game App!"
 sleep 1
 
-# Input Methods
-def get_name
-    puts "Please enter a name:"
-    name = gets.chomp
-end
-def get_pass
-    puts "Please enter a password:"
-    password = STDIN.noecho(&:gets).chomp
-end
-def get_player_data
-    player = File.read("./players_file.yml")
-    YAML::load_stream(player) do |object|
-        @players_from_file << object
-    end
-end
-
-# Output Methods
-def store_player_data
-
-end
-
-
-def create_player
-    # Create player object and store in players_file
-    player_hash = {}
-    player = Player.new(get_name, get_pass)
-    player = player.instance_variables.each {|var| player_hash[var.to_s.delete("@")] = player.instance_variable_get(var) }
-    File.open("./players_file.yml", "a+") {|file| file.write(player_hash.to_yaml)}
-end
-
-
-def player_match
-    # Get player details and check against player_file data
-    name = get_name
-    pass = get_pass
-    result = ""
-    match = false
-    puts "Searching..."
-    sleep 1
-    get_player_data
-    p get_player_data
-    p name
-    p pass
-    @players_from_file.each do |object|
-        if name == object["name"] && pass == object["password"]
-            result = "Match found"
-            match = object
-        elsif name == object["name"] && pass != object["password"]
-            result = "Password incorrect"
-        elsif name != object["name"]
-            p name
-            p object["name"]
-            result = "Name not found"
-        end
-    end
-    return result, match
-end
-def edit_player
-    # Checks if player data matches data on file
-    # then gives options on what data to change
-    inputs = player_match
-    result = inputs[0]
-    match = inputs[1]
-    p result
-    p match
-    case result
-    when "Match found"
-        puts "This works!"
-        edit_player_menu(match)
-    when "Password incorrect"
-
-    when "Name not found"
-        
-    end
-end
-def delete_player
-    get_player_data
-end
-
+# Display Methods
 def display_help
     puts "Help coming soon!"
 end
 def display_rules
-    puts "rules coming soon!"
+    puts "Rules coming soon!"
 end
 
 # Menu Prompt Selection
@@ -126,18 +48,20 @@ end
 
 # Menu Loops
 # Edit Player Menu
-def edit_player_menu(match)
+def edit_player_menu(player)
     selection = ""
     while selection != "Back"
         selection = menu_selection(@edit_player_menu_name, @edit_player_menu_options)
         system "clear"
         case selection
         when "Name"
-            puts "Previous name is #{match["name"]}"
-            gets_name
-            puts "Name changed to #{match["name"]}"
+            puts "Previous name is #{player["name"]}"
+            player["name"] = get_name
+            puts "Name changed to #{player["name"]}"
+            return player
         when "Password"
-            gets_pass
+            player["password"] = get_pass
+            return player
         end
     end
 end
