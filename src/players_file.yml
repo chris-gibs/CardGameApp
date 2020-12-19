@@ -1,6 +1,42 @@
 ---
 name: test1
 password: e
+games: 2
+wins: 0
+score: 900
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test2
+password: e
+games: 3
+wins: 2
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: test3
+password: e
+games: 1
+wins: 1
+score: 1100
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+lost: false
+blackjack: false
+---
+name: colourtest1
+password: e
 games: 0
 wins: 0
 score: 1000

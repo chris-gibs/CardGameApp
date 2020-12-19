@@ -5,7 +5,11 @@
 # index.rb includes all menus, I/O, and error handling
 
 # Requires
+require 'tty-color'
+require 'tty-font'
 require 'tty-prompt'
+require 'tty-table'
+require 'pastel'
 require 'yaml'
 require 'io/console'
 require_relative './game'
@@ -13,9 +17,10 @@ require_relative './player'
 require_relative './leaderboard'
 
 # Declarations
-$prompt = TTY::Prompt.new
-system "clear"
-@players_from_file = []
+$pastel = Pastel.new
+$font = TTY::Font.new(:starwars)
+$prompt = TTY::Prompt.new(active_color: :blue)
+system 'clear'
 
 # Menu Data
 main_menu_name = "Main menu:"
@@ -30,8 +35,42 @@ main_menu_options = ["Player Options", "New Game", "Leaderboard", "Help", "Exit"
 @edit_player_menu_options = ["Name", "Password", "Back"]
 
 # Greeting
-puts "Welcome to my Card Game App!"
-sleep 1
+def display_greeting
+    puts "#{$pastel.decorate($font.write("Black"), :black, :on_white, :bold)}\n#{$pastel.decorate($font.write("Jack"), :red, :on_white, :bold)}"
+    sleep 1
+end
+
+# I/O Methods
+def get_name
+    puts "Please enter a name:"
+    name = gets.chomp
+end
+def get_pass
+    puts "Please enter a password:"
+    password = STDIN.noecho(&:gets).chomp
+end
+def get_player_data(name)
+    @players_from_file = []
+    players_file = File.read("./players_file.yml")
+    # Gets all objects from yaml file and puts in array for iteration
+    YAML::load_stream(players_file) do |object|
+        @players_from_file << object
+    end
+    # Gets specific object if a name is given in method argument
+    # Could be DRYer
+    if name != nil
+        object_index = @players_from_file.index {|player| player["name"] == name}
+        if object_index != nil
+            puts $pastel.green("Search successful!")
+            sleep 1
+            @players_from_file.reject!{|index| index != @players_from_file[object_index]}
+        else
+            puts $pastel.red ("Player not found or details incorrect, please try again.")
+            sleep 1
+            break_away = true
+        end
+    end
+end
 
 # Display Methods
 def display_help
@@ -60,6 +99,8 @@ def edit_player_menu(player)
         when "Password"
             player["password"] = get_pass
             return player
+        when "Back"
+            return selection
         end
     end
 end
@@ -71,12 +112,9 @@ def leaderboard_menu
         system "clear"
         case selection
         when "Display Leaderboard"
-            puts "Display coming soon!"
-            # create a file read method that is called for methods that
-            # need it, slot the objects into an array then iterate over
-            # the array
+            display_leaderboard
         when "Search Leaderboard"
-            puts "Edit coming soon!"
+            search_leaderboard
         end
     end
 end
@@ -116,6 +154,7 @@ end
 # Main Menu
 selection = ""
 while selection != "Exit"
+    display_greeting
     selection = menu_selection(main_menu_name, main_menu_options)
     system "clear"
     case selection
@@ -131,6 +170,6 @@ while selection != "Exit"
         display_help
     end
 end
-puts "Goodbye!"
+puts $pastel.decorate($font.write("Goodbye!"), :blue, :on_white, :bold)
 sleep 1
 system "clear"

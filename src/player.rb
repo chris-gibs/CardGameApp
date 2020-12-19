@@ -1,8 +1,5 @@
 # player.rb includes Player class and player option functions
 
-# Require
-require 'tty-prompt'
-
 # Player class
 class Player
     def initialize(name, password)
@@ -30,55 +27,38 @@ class Player
         @games += 1
         @score = score_change
     end
-    def self.player_game_details
-        puts "#{@name}    #{@hand}    #{@bet}"
-    end
 end
 
 # Player Option Functions
-# Input/Output Methods
-def get_name
-    puts "Please enter a name:"
-    name = gets.chomp
-end
-def get_pass
-    puts "Please enter a password:"
-    password = STDIN.noecho(&:gets).chomp
-end
-def get_player_data
-    # Gets all objects from yaml file and puts in array for iteration
-    players_file = File.read("./players_file.yml")
-    YAML::load_stream(players_file) do |object|
-        @players_from_file << object
-    end
-end
 def player_match(option)
     # Get player details and check against player_file data
     name = get_name
     pass = get_pass
     system 'clear'
-    puts "Searching..."
+    puts $pastel.yellow("Searching...")
     sleep 1
-    get_player_data
+    get_player_data(nil)
     index = @players_from_file.index {|player| player["name"] == name && player["password"] == pass}
     if index != nil
-        puts "Search successful!"
+        puts $pastel.green("Search successful!")
         sleep 1
         case option
         when "edit"
-            edit_player_menu(@players_from_file[index])
-            change_player_data
+            selection = edit_player_menu(@players_from_file[index])
+            if selection != "Back"
+                change_player_data
+            end
         when "delete"
             # delete player object from array at index
             @players_from_file.delete_at(index)
             change_player_data
         end
     else
-        puts "Player not found or details incorrect, please try again."
+        puts $pastel.red ("Player not found or details incorrect, please try again.")
     end
 end
 def change_player_data
-    puts "Applying change..."
+    puts $pastel.yellow("Applying change...")
     sleep 1
     # Clears file
     File.open('./players_file.yml', 'w') {|file| file.truncate(0)}
@@ -88,17 +68,21 @@ def change_player_data
         file.write(index.to_yaml)
         end
     end
-    puts "Change complete."
+    puts $pastel.green("Change complete.")
+    sleep 1
 end
-
-# Main Functions
 def create_player
     # Create player object and store in players_file
     player_hash = {}
     player = Player.new(get_name, get_pass)
+    puts $pastel.yellow("Creating player...")
+    sleep 1
     # Converts class properties into a hash with key-value pairs to store in yaml file
-    player = player.instance_variables.each {|var| player_hash[var.to_s.delete("@")] = player.instance_variable_get(var) }
+    player.instance_variables.each {|var| player_hash[var.to_s.delete("@")] = player.instance_variable_get(var) }
     File.open("./players_file.yml", "a+") {|file| file.write(player_hash.to_yaml)}
+    puts $pastel.green("Player #{player_hash["name"]} created.")
+    sleep 1
+    system 'clear'
 end
 def edit_player
     player_match("edit")

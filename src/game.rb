@@ -1,6 +1,4 @@
-# Require
-require 'tty-prompt'
-require 'playing_cards'
+# game.rb includes game function methods
 
 # Variables
 @players_in_game = []
@@ -20,16 +18,15 @@ def number_of_players
 end
 def build_deck
     #include shuffle
-    deck = BlackjackCards::Deck.new
+    deck = 
     p deck
-    deck.cards.count
+    deck.shuffle
 end
 def deal_card
 
 end
 def display_game
-    Player.player_game_details
-    puts "#{}"
+    
 end
 def hit
     puts "Hit coming soon!"
@@ -37,8 +34,3 @@ end
 def stand
     puts "Stand coming soon!"
 end
-def display_rules
-    puts "Rules coming soon!"
-end
-
-
