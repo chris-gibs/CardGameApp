@@ -81,7 +81,7 @@ def change_player_data
     puts "Applying change..."
     sleep 1
     # Clears file
-    File.open('./players_file.yml', 'w') {}
+    File.open('./players_file.yml', 'w') {|file| file.truncate(0)}
     # Data from altered array is put into file
     @players_from_file.each do |index|
         File.open("./players_file.yml", "a+") do |file|

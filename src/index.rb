@@ -55,9 +55,7 @@ def edit_player_menu(player)
         system "clear"
         case selection
         when "Name"
-            puts "Previous name is #{player["name"]}"
             player["name"] = get_name
-            puts "Name changed to #{player["name"]}"
             return player
         when "Password"
             player["password"] = get_pass
