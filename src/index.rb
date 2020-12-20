@@ -85,7 +85,6 @@ end
 def edit_player_menu(player)
     selection = ""
     while selection != "Back"
-        display_banner
         selection = menu_selection(@edit_player_menu_name, @edit_player_menu_options)
         system "clear"
         case selection
@@ -104,7 +103,6 @@ end
 def leaderboard_menu
     selection = ""
     while selection != "Back"
-        display_banner
         selection = menu_selection(@leaderboard_menu_name, @leaderboard_menu_options)
         system "clear"
         case selection
@@ -119,7 +117,6 @@ end
 def game_menu
     selection = ""
     while selection != "Back"
-        display_banner
         selection = menu_selection(@new_game_menu_name, @new_game_menu_options)
         system "clear"
         case selection
@@ -139,7 +136,6 @@ end
 def player_menu
     selection = ""
     while selection != "Back"
-        display_banner
         selection = menu_selection(@player_menu_name, @player_menu_options)
         system "clear"
         case selection
