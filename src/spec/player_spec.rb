@@ -1,18 +1,18 @@
-require 'player.rb'
-require 'index.rb'
+require 'spec_helper.rb'
+
+require_relative '../player.rb'
+require_relative '../index.rb'
+require_relative '../game.rb'
 
 # Player tests
-Rspec.describe Player do
-    it 'creates a new player' do
-        player = Player.new
-        expect(player).to be_kind_of(Player)
+RSpec.describe Player do
+    it 'should be initialized correctly' do
+        player = Player.new("Player", "Password")
+        expect(player).to be_instance_of Player
     end
-end
-
-# Game tests
-Rspec.describe Game do
-    it 'makes sure number entered is between 1 and 4' do
-        number = gets.chomp.to_i
-        expect(number).to eq(1..4)
+    it 'should have a name and password' do
+        player = Player.new("Player", "Password")
+        expect(player["name"]).to eq("Player")
+        expect(player["password"]).to eq("Password")
     end
 end
