@@ -5,16 +5,27 @@
 dealers_hand = []
 # Game methods
 def number_of_players
+    # Loops until we get the number we're looking for
     while false
         puts "Please enter number of players (Between 1 and 4): "
-        number = gets.chomp.to_i
-        if number.between?(1, 4)
-            puts "That is correct!"
+        number_of_players = gets.chomp.to_i
+        if number_of_players.between?(1, 4)
+            success_message(@correct_input)
+            # Loops for each player confirming their details and
+            #adding their object to the Players_in_game array
+            number = number_of_players
+            until number == 0
+                player_match
+                @players_in_game << @players_from_file[index]
+                number -= 1
+            end
             true
         else
-            puts "That is incorrect! Enter a number between 1 and 4:"
+            error_message(@incorrect_input)
         end
     end
+    p number_of_players
+    return number_of_players
 end
 def build_deck
     # Create new deck array of card values and shuffle
@@ -37,6 +48,7 @@ def hand_value_check(hand_value)
     when hand_value < 21
         puts "Less than!"
     end
+end
 def display_game
     
 end

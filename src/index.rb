@@ -34,6 +34,33 @@ main_menu_options = ["Player Options", "New Game", "Leaderboard", "Help", "Exit"
 @edit_player_menu_name = "Edit Player Options"
 @edit_player_menu_options = ["Name", "Password", "Back"]
 
+# Success Messages
+@correct_player_details = "Search successful!"
+@change_complete = "Change complete."
+@player_created = "Player #{player_hash["name"]} created."
+@correct_input = "Correct input found."
+# Working Messages
+@change_applying = "Applying change..."
+@creating_player = "Creating player..."
+@player_searching = "Searching..."
+# Error Messages
+@incorrect_player_details = "Player not found or details incorrect, please try again."
+@incorrect_input = "That is incorrect!"
+
+# Error Handling
+def success_message(message)
+    puts $pastel.green(message)
+    sleep 1
+end
+def working_message(message)
+    puts $pastel.yellow()
+    sleep 1
+end
+def error_message(message)
+    puts $pastel.red("Error! #{message}")
+    sleep 1
+end
+
 # Greeting
 def display_banner
     puts "#{$pastel.decorate($font.write("Black"), :black, :on_white, :bold)}\n#{$pastel.decorate($font.write("Jack"), :red, :on_white, :bold)}"
@@ -60,17 +87,13 @@ def get_player_data(name)
         @players_from_file << object
     end
     # Gets specific object if a name is given in method argument
-    # Could be DRYer
     if name != nil
         object_index = @players_from_file.index {|player| player["name"] == name}
         if object_index != nil
-            puts $pastel.green("Search successful!")
-            sleep 1
+            success_message(@correct_player_details)
             @players_from_file.reject!{|index| index != @players_from_file[object_index]}
         else
-            puts $pastel.red ("Player not found or details incorrect, please try again.")
-            sleep 1
-            break_away = true
+            error_message(@incorrect_player_details)
         end
     end
 end
@@ -121,8 +144,8 @@ def game_menu
         system "clear"
         case selection
         when "Hit"
-            draw_card
-            #hand_value_check
+            draw_card()
+            hand_value_check()
         when "Stand"
             stand
         when "Rules"
@@ -143,9 +166,9 @@ def player_menu
         when "Create new player"
             create_player
         when "Edit player details"
-            player_match("edit")
+            change_player_options("edit", player_match)
         when "Delete player"
-            player_match("delete")
+            change_player_options("delete", player_match)
         end
     end
 end
@@ -159,7 +182,8 @@ while selection != "Exit"
     when "Player Options"
         player_menu
     when "New Game"
-        #number_of_players
+        number_of_players
+        #current_player
         build_deck
         game_menu
     when "Leaderboard"
@@ -168,6 +192,8 @@ while selection != "Exit"
         get_file("help")
     end
 end
+
+# Goodbye Message
 puts $pastel.decorate($font.write("Goodbye!"), :blue, :on_white, :bold)
 sleep 1
 system "clear"

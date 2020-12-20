@@ -2,6 +2,7 @@
 
 # Player class
 class Player
+    attr_accessor :hand, :hand_value
     def initialize(name, password)
         @name = name
         @password = password
@@ -30,18 +31,24 @@ class Player
 end
 
 # Player Option Functions
-def player_match(option)
+def player_match
     # Get player details and check against player_file data
     name = get_name
     pass = get_pass
     system 'clear'
-    puts $pastel.yellow("Searching...")
-    sleep 1
+    working_message(@player_searching)
     get_player_data(nil)
+    # Find out where in our players from file array the player object is located
     index = @players_from_file.index {|player| player["name"] == name && player["password"] == pass}
     if index != nil
-        puts $pastel.green("Search successful!")
-        sleep 1
+        success_message(@correct_player_details)
+        return index
+    else
+        error_message(@incorrect_player_details)
+    end
+end
+def change_player_options(option, index)
+    if index != nil
         case option
         when "edit"
             selection = edit_player_menu(@players_from_file[index])
@@ -49,17 +56,15 @@ def player_match(option)
                 change_player_data
             end
         when "delete"
-            # delete player object from array at index
             @players_from_file.delete_at(index)
             change_player_data
         end
     else
-        puts $pastel.red ("Player not found or details incorrect, please try again.")
+
     end
 end
 def change_player_data
-    puts $pastel.yellow("Applying change...")
-    sleep 1
+    working_message(@change_applying)
     # Clears file
     File.open('./players_file.yml', 'w') {|file| file.truncate(0)}
     # Data from altered array is put into file
@@ -68,19 +73,16 @@ def change_player_data
         file.write(index.to_yaml)
         end
     end
-    puts $pastel.green("Change complete.")
-    sleep 1
+    success_message(@change_complete)
 end
 def create_player
     # Create player object and store in players_file
     player_hash = {}
     player = Player.new(get_name, get_pass)
-    puts $pastel.yellow("Creating player...")
-    sleep 1
+    working_message(@creating_player)
     # Converts class properties into a hash with key-value pairs to store in yaml file
     player.instance_variables.each {|var| player_hash[var.to_s.delete("@")] = player.instance_variable_get(var) }
     File.open("./players_file.yml", "a+") {|file| file.write(player_hash.to_yaml)}
-    puts $pastel.green("Player #{player_hash["name"]} created.")
-    sleep 1
+    success_message(@player_created)
     system 'clear'
 end
