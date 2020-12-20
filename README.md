@@ -73,8 +73,13 @@ User navigates menus using arrows and Enter keys. A built in prompt message expl
 
 # Help Documentation
 ## Installation
+Step 1: Navigate your terminal into the src folder of the app
+Step 2: type ./run_app.sh
+Step 3: ...
+Step 4: Profit!
 
-type ./run_app.sh
+Step 2 will install gem dependencies you might need to run the app automatically. Ensure you have Ruby version 2.7.2 installed.
+
 ## Required Dependencies
 ### Gems
 gem "pastel", "~> 0.8.0"
