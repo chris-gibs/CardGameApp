@@ -154,7 +154,7 @@ def game_menu(player)
             puts "Youre before handvaluecheck"
             hand_value_check(player)
         when "Stand"
-            next
+            hand_value_compare(player)
         when "Rules"
             get_file("rules")
             puts "Press any key to continue..."

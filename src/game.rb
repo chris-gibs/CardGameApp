@@ -69,10 +69,8 @@ def player_bet(player)
     end
 end
 def hand_value_check(player)
-    puts "Youre in handvaluecheck"
     hand_value = player["hand"].sum
-    puts "Youre after hand value assigned"
-    case
+    case hand_value
     when hand_value > 21
         puts "Greater than!"
         aces_count_check(player)
@@ -84,13 +82,18 @@ def hand_value_check(player)
 end
 def aces_count_check(player)
     if player["hand"].include?(11)
-        puts "You've got an ace!"
-        p player["hand"]
+        puts "You've got an ace! Adjusting value..."
         player["hand"][player["hand"].index(11)] = 1
-        p player["hand"]
     else
         lose(player)
         puts " You LOSE #{player["name"]}!"
+    end
+end
+def hand_value_compare(player)
+    if player["hand"].sum > @dealer_hand.sum
+        win(player)
+    else
+        lose(player)
     end
 end
 def display_game(player)
