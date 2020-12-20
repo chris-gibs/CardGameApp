@@ -1,7 +1,5 @@
 # leaderboard.rb includes leaderboard function methods
 
-# Declarations
-
 # Leaderboard Methods
 def generate_leaderboard(name)
     rank = 1
@@ -25,10 +23,4 @@ def generate_leaderboard(name)
         system 'clear'
         puts $pastel.blue.on_black(leaderboard.render(:unicode))
     end
-end
-def display_leaderboard
-    generate_leaderboard(nil)
-end
-def search_leaderboard
-    generate_leaderboard(get_name)
 end

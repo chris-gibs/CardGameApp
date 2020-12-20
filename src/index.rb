@@ -107,9 +107,9 @@ def leaderboard_menu
         system "clear"
         case selection
         when "Display Leaderboard"
-            display_leaderboard
+            generate_leaderboard(nil)
         when "Search Leaderboard"
-            search_leaderboard
+            generate_leaderboard(get_name)
         end
     end
 end

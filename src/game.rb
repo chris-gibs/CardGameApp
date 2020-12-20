@@ -17,14 +17,15 @@ def number_of_players
     end
 end
 def build_deck
-    # Create deck array of card hash objects that include a key name
+    # Create deck array of card objects that include a name based on rank/suite
     # and a value relative to blackjack values
+
     deck = []
     p deck
     deck.shuffle
 end
-def deal_card
-
+def deal_card(hand)
+    hand << deck.delete_at[0]
 end
 def display_game
     
