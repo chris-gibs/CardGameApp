@@ -12,9 +12,9 @@ class Player
         @hand_value = 0
         @bet = 0
         @has_bet = false
+        @aces_count = 0
         @lost = false
         @blackjack = false
-        #@players_index = players.length - 1
     end
     def self.win
         puts "Winner winner, chicken dinner!"
@@ -85,7 +85,7 @@ def create_player
     system 'clear'
 end
 def edit_player
-    player_match("edit")
+    
 end
 def delete_player
     player_match("delete")

@@ -17,8 +17,9 @@ def number_of_players
     end
 end
 def build_deck
-    #include shuffle
-    deck = 
+    # Create deck array of card hash objects that include a key name
+    # and a value relative to blackjack values
+    deck = []
     p deck
     deck.shuffle
 end
