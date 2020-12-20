@@ -17,7 +17,7 @@ def generate_leaderboard(name)
         end
         success_message(@leaderboard_ready)
         working_message(@printing)
-        system 'clear'
+        system "clear"
         puts $pastel.blue.on_black(leaderboard.render(:unicode))
     end
 end

@@ -111,9 +111,9 @@ end
 # Menus
 # Edit Player Menu
 def edit_player_menu(player)
-    system "clear"
     selection = ""
     while selection != "Back"
+        system "clear"
         selection = menu_selection(@edit_player_menu_name, @edit_player_menu_options)
         case selection
         when "Name"
@@ -143,14 +143,15 @@ def leaderboard_menu
 end
 # Game Menu
 def game_menu(player)
-    system "clear"
-    display_game(player)
     selection = ""
     while selection != "Back"
+        system "clear"
+        display_game(player)
         selection = menu_selection(@new_game_menu_name, @new_game_menu_options)
         case selection
         when "Hit"
             player["hand"] << draw_card
+            puts "Youre before handvaluecheck"
             hand_value_check(player)
         when "Stand"
             next
@@ -164,9 +165,9 @@ def game_menu(player)
 end
 # Player Menu
 def player_menu
-    system "clear"
     selection = ""
     while selection != "Back"
+        system "clear"
         selection = menu_selection(@player_menu_name, @player_menu_options)
         case selection
         when "Create new player"
@@ -179,10 +180,10 @@ def player_menu
     end
 end
 # Main Menu
-system "clear"
-display_banner
 selection = ""
 while selection != "Exit"
+    system "clear"
+    display_banner
     selection = menu_selection(main_menu_name, main_menu_options)
     case selection
     when "Player Options"

@@ -16,18 +16,6 @@ class Player
         @lost = false
         @blackjack = false
     end
-    def self.win
-        puts "Winner winner, chicken dinner!"
-        @games += 1
-        @wins += 1
-        @score = score_change
-    end
-    def self.lose
-        puts "Better luck next time!"
-        @lost = true
-        @games += 1
-        @score = score_change
-    end
 end
 
 # Player Option Functions
@@ -59,6 +47,7 @@ def player_match(option)
         end
     else
         error_message(@incorrect_player_details)
+        puts "Try again..."
     end
 end
 def change_player_data

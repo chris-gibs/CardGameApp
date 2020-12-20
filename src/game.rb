@@ -23,7 +23,6 @@ def number_of_players(option)
             error_message(@incorrect_input)
         end
     end
-    current_player = @players_in_game[0]
 end
 # Main Game
 def game_loop
@@ -70,7 +69,9 @@ def player_bet(player)
     end
 end
 def hand_value_check(player)
+    puts "Youre in handvaluecheck"
     hand_value = player["hand"].sum
+    puts "Youre after hand value assigned"
     case
     when hand_value > 21
         puts "Greater than!"
@@ -84,9 +85,11 @@ end
 def aces_count_check(player)
     if player["hand"].include?(11)
         puts "You've got an ace!"
-        # Change 11 to 1
+        p player["hand"]
+        player["hand"][player["hand"].index(11)] = 1
+        p player["hand"]
     else
-        player.lose
+        lose(player)
         puts " You LOSE #{player["name"]}!"
     end
 end
@@ -94,4 +97,16 @@ def display_game(player)
     system 'clear'
     puts "Dealer's first card: #{@dealer_hand[0]}"
     puts "Your hand value:     #{player["hand"].sum}"
+end
+def win(player)
+    puts "Winner winner, chicken dinner!"
+    player["games"] += 1
+    player["wins"] += 1
+    #player["score"] = score_change
+end
+def lose(player)
+    puts "Better luck next time!"
+    player["lost"] = true
+    player["games"] += 1
+    player["score"] = player["score"] - player["bet"]
 end
