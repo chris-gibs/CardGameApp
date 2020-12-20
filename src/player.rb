@@ -31,7 +31,7 @@ class Player
 end
 
 # Player Option Functions
-def player_match
+def player_match(option)
     # Get player details and check against player_file data
     name = get_name
     pass = get_pass
@@ -42,13 +42,7 @@ def player_match
     index = @players_from_file.index {|player| player["name"] == name && player["password"] == pass}
     if index != nil
         success_message(@correct_player_details)
-        return index
-    else
-        error_message(@incorrect_player_details)
-    end
-end
-def change_player_options(option, index)
-    if index != nil
+        # At this point we have the right player object index
         case option
         when "edit"
             selection = edit_player_menu(@players_from_file[index])
@@ -58,9 +52,11 @@ def change_player_options(option, index)
         when "delete"
             @players_from_file.delete_at(index)
             change_player_data
+        when "new game"
+            return index
         end
     else
-
+        error_message(@incorrect_player_details)
     end
 end
 def change_player_data

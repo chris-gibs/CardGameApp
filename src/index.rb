@@ -37,12 +37,15 @@ main_menu_options = ["Player Options", "New Game", "Leaderboard", "Help", "Exit"
 # Success Messages
 @correct_player_details = "Search successful!"
 @change_complete = "Change complete."
-@player_created = "Player #{player_hash["name"]} created."
+@player_created = "Player created."
 @correct_input = "Correct input found."
+@leaderboard_ready = "Leaderboard ready."
 # Working Messages
 @change_applying = "Applying change..."
 @creating_player = "Creating player..."
 @player_searching = "Searching..."
+@generating_leaderboard = "Generating leaderboard..."
+@printing = "Printing..."
 # Error Messages
 @incorrect_player_details = "Player not found or details incorrect, please try again."
 @incorrect_input = "That is incorrect!"
@@ -53,11 +56,11 @@ def success_message(message)
     sleep 1
 end
 def working_message(message)
-    puts $pastel.yellow()
+    puts $pastel.yellow(message)
     sleep 1
 end
 def error_message(message)
-    puts $pastel.red("Error! #{message}")
+    puts $pastel.red("Error: #{message}")
     sleep 1
 end
 
@@ -94,6 +97,8 @@ def get_player_data(name)
             @players_from_file.reject!{|index| index != @players_from_file[object_index]}
         else
             error_message(@incorrect_player_details)
+            # Returns to menu to try again
+            break_away = true
         end
     end
 end
@@ -103,7 +108,7 @@ def menu_selection(menu_name, menu_options)
     return $prompt.select(menu_name, menu_options)
 end
 
-# Menu Loops
+# Menus
 # Edit Player Menu
 def edit_player_menu(player)
     selection = ""
@@ -166,9 +171,9 @@ def player_menu
         when "Create new player"
             create_player
         when "Edit player details"
-            change_player_options("edit", player_match)
+            player_match("edit")
         when "Delete player"
-            change_player_options("delete", player_match)
+            player_match("delete")
         end
     end
 end
@@ -182,7 +187,7 @@ while selection != "Exit"
     when "Player Options"
         player_menu
     when "New Game"
-        number_of_players
+        number_of_players("new game")
         #current_player
         build_deck
         game_menu

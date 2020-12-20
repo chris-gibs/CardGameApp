@@ -3,8 +3,7 @@
 # Leaderboard Methods
 def generate_leaderboard(name)
     rank = 1
-    puts $pastel.yellow("Generating leaderboard...")
-    sleep 1
+    working_message(@generating_leaderboard)
     leaderboard = TTY::Table.new(header: ["Rank", "Name", "Games", "Wins", "Score"])
     break_away = get_player_data(name)
     # Prevents puts statements under .each iterator from executing if wrong name entered
@@ -16,10 +15,8 @@ def generate_leaderboard(name)
             leaderboard << [rank, index["name"], index["games"], index["wins"], index["score"]]
             rank += 1
         end
-        puts $pastel.green("Leaderboard ready.")
-        sleep 1
-        puts "Printing..."
-        sleep 1
+        success_message(@leaderboard_ready)
+        working_message(@printing)
         system 'clear'
         puts $pastel.blue.on_black(leaderboard.render(:unicode))
     end

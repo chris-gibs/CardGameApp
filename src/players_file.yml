@@ -11,18 +11,6 @@ has_bet: false
 lost: false
 blackjack: false
 ---
-name: test2
-password: e
-games: 3
-wins: 2
-score: 1000
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-lost: false
-blackjack: false
----
 name: test3
 password: e
 games: 1
@@ -44,5 +32,18 @@ hand: []
 hand_value: 0
 bet: 0
 has_bet: false
+lost: false
+blackjack: false
+---
+name: Player 2
+password: q
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+aces_count: 0
 lost: false
 blackjack: false
