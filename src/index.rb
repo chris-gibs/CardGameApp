@@ -49,6 +49,9 @@ def get_pass
     puts "Please enter a password:"
     password = STDIN.noecho(&:gets).chomp
 end
+def get_file(file_name)
+    File.open("#{file_name}.txt").each {|line| puts line}
+end
 def get_player_data(name)
     @players_from_file = []
     players_file = File.read("./players_file.yml")
@@ -70,14 +73,6 @@ def get_player_data(name)
             break_away = true
         end
     end
-end
-
-# Display Methods
-def display_help
-    puts "Help coming soon!"
-end
-def display_rules
-    puts "Rules coming soon!"
 end
 
 # Menu Prompt Selection
@@ -131,7 +126,7 @@ def game_menu
         when "Stand"
             stand
         when "Rules"
-            display_rules
+            get_file("rules")
         end
     end
 end
@@ -167,7 +162,7 @@ while selection != "Exit"
     when "Leaderboard"
         leaderboard_menu
     when "Help"
-        display_help
+        get_file("help")
     end
 end
 puts $pastel.decorate($font.write("Goodbye!"), :blue, :on_white, :bold)
