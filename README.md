@@ -15,12 +15,12 @@ By Christopher Murray Gibson 2020
 |[Game Features](#game-features)|
 |[Leaderboard Features](#leaderboard-features)|
 |[Help Features](#help-features)|
-|[Q11](#question-11---restaurant-classes)|
-|[Q12](#question-12---code-snippet:-celcius)|
-|[Q13](#question-13---code-snippet:-order-swap)|
-|[Q14](#question-14---prime-numbers)|
+|[User Interaction Outline](#user-interaction-outline)|
+|[Control Flow Diagram](#control-flow-diagram)|
 |[Implementation Plan](#implementation-plan)|
 |[Source Control Repository](#source-control-repository)|
+|[Q13](#question-13---code-snippet:-order-swap)|
+|[Q14](#question-14---prime-numbers)|
 | |
 
 # Software Development Plan
@@ -70,12 +70,10 @@ Shows text from a help file highlighting controls for the program and types of i
 Shows text from a rules file highlighting the rules of the card game.
 
 ## User Interaction Outline
-User navigates menus using arrows and Enter keys. A built in prompt message explains this on each menu.
-User can get help information that describes what each feature does
-Incorrect inputs will be displayed to the user and will say the kind of input we are looking for
+User navigates menus using arrows and Enter keys. A built in prompt message explains this on each menu. If input by the user is required the applicaiton will prompt the user for the required input and run a check on the input. User can access help/rules files that describe what to do should they need it. If a user enters an incorrect input they will receive a red coloured text message stating that fact. They are sent back to the menu they were on previously to try again. Green coloured text messages indicate a successful input.
 
 ## Control Flow Diagram
-![Control Flow](../docs/T1A3_ControlFlowDiagram.jpg)
+![T1A3_ControlFlowDiagram](./docs/T1A3_ControlFlowDiagram.jpg)
 
 ## Implementation Plan
 [Trello Board](https://trello.com/b/YOqtuuu1/cmgterminalapp)
