@@ -2,7 +2,7 @@
 Card Game Application
 By Christopher Murray Gibson 2020
 
-# Index
+## Index
 | |
 | - |
 |[Software Development Plan](#software-development-plan)|
@@ -16,11 +16,10 @@ By Christopher Murray Gibson 2020
 |[Leaderboard Features](#leaderboard-features)|
 |[Help Features](#help-features)|
 |[User Interaction Outline](#user-interaction-outline)|
+|[Help Documentation](#help-documentation)|
 |[Control Flow Diagram](#control-flow-diagram)|
 |[Implementation Plan](#implementation-plan)|
 |[Source Control Repository](#source-control-repository)|
-|[Q13](#question-13---code-snippet:-order-swap)|
-|[Q14](#question-14---prime-numbers)|
 | |
 
 # Software Development Plan
@@ -36,54 +35,56 @@ The target audience are those that enjoy card games of this nature.
 ## How it is Used
 A member of the target audience will use this app to entertain themselves by playing games of Blackjack either solo or with other players against the dealer on the same machine. They can navigate the menus/options using their arrow and Enter keys. They will be able to create players by giving them a name and password, as well as editing or deleting those details of a given player after a check. They can view the leaderboard for all players or a specific one. Finally they can play a simplified game of Blackjack.
 
-## Features
-### Player Features
-#### Create Player
+# Features
+## Player Features
+### Create Player
 Requires user to enter name and password to create a player object that is saved in a player file.
-#### Edit Player details
+### Edit Player details
 Allows user to edit the name/password if the name/password they enter are correct.
-#### Delete Player
+### Delete Player
 Allows user to delete the player from the player file if the name/password they enter are correct.
 
-### Game Features
-#### Deck Builder
+## Game Features
+### Deck Builder
 When a new game is made, a deck of values of Blackjack cards is created and shuffled.
-#### Draw Card
+### Draw Card
 Draws a card and puts the value of it in the player's or dealer's hand value variable.
-#### Bet
+### Bet
 A player bets before the cards are dealt. They can bet using their score and can not bet lower than 0.
-#### Hit
+### Hit
 Draws a card and adds the value of it to the hand value variable of the player. If the value added was an 11 an increment of 1 is added to the aces in hand variable. If the hand value is higher than 21 the aces in hand variable is checked. If it is greater than 0 then the hand value variable is decremented by 10 and the aces in hand variable is decremented by 1. Otherwise the player loses the round.
-#### Stand
+### Stand
 The player passes their turn to the next player and maintains their hand value. It is then compared against the dealers hand and the greater hand wins, a draw means the player gets their bet back.
 
-### Leaderboard Features
-#### Display Leaderboard
+## Leaderboard Features
+### Display Leaderboard
 Display all players in player file into a Leaderboard table.
-#### Search Leaderboard details for specific player
+### Search Leaderboard details for specific player
 Allows user to enter the name of a player to Display a Leaderboard table of their specific details.
 
-### Help Features
-#### Display Information about how to operate program
+## Help Features
+### Display Information about how to operate program
 Shows text from a help file highlighting controls for the program and types of inputs the user can enter.
-#### Display Information about game rules
+### Display Information about game rules
 Shows text from a rules file highlighting the rules of the card game.
 
-## User Interaction Outline
+# User Interaction Outline
 User navigates menus using arrows and Enter keys. A built in prompt message explains this on each menu. If input by the user is required the applicaiton will prompt the user for the required input and run a check on the input. User can access help/rules files that describe what to do should they need it. If a user enters an incorrect input they will receive a red coloured text message stating that fact. They are sent back to the menu they were on previously to try again. Green coloured text messages indicate a successful input.
 
-## Control Flow Diagram
+# Help Documentation
+## Installation
+
+## Required Dependencies
+
+## System/Hardware Requirements
+
+# Control Flow Diagram
 ![T1A3_ControlFlowDiagram](./docs/T1A3_ControlFlowDiagram.jpg)
 
-## Implementation Plan
+# Implementation Plan
+Below is a link to my Trello Board for the development of this terminal application:
 [Trello Board](https://trello.com/b/YOqtuuu1/cmgterminalapp)
 
-## Source Control Repository
+# Source Control Repository
+Below is a link to my Github repository for the source control management of this terminal application:
 [Github Repo](https://github.com/chris-gibs/CardGameApp)
-
-## Help Documentation
-### Installation
-
-### Required Dependencies
-
-### System/Hardware Requirements
