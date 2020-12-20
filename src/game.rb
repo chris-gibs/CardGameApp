@@ -17,25 +17,26 @@ def number_of_players
     end
 end
 def build_deck
-    # Create deck array of card objects that include a name based on rank/suite
-    # and a value relative to blackjack values
-
-
-    # Make a numbers version of the game only to start!!!!!!!!!!!!!!!!!!!!
-
-    deck = []
+    # Create new deck array of card values and shuffle
+    deck = Array.new(4) {10}
+    deck += [*(1..9), 11]
+    deck.shuffle!
+end
+def draw_card(hand)
     p deck
-    deck.shuffle
-end
-def deal_card(hand)
     hand << deck.delete_at[0]
+    p hand
+    p deck
 end
+def hand_value_check(hand_value)
+    case
+    when hand_value > 21
+        puts "Greater than!"
+    when hand_value == 21
+        puts "Blackjack!"
+    when hand_value < 21
+        puts "Less than!"
+    end
 def display_game
     
-end
-def hit
-    puts "Hit coming soon!"
-end
-def stand
-    puts "Stand coming soon!"
 end

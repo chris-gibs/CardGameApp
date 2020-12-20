@@ -121,7 +121,8 @@ def game_menu
         system "clear"
         case selection
         when "Hit"
-            hit
+            draw_card
+            #hand_value_check
         when "Stand"
             stand
         when "Rules"
@@ -159,7 +160,7 @@ while selection != "Exit"
         player_menu
     when "New Game"
         #number_of_players
-        #build_deck
+        build_deck
         game_menu
     when "Leaderboard"
         leaderboard_menu
