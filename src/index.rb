@@ -145,9 +145,9 @@ def player_menu
         when "Create new player"
             create_player
         when "Edit player details"
-            edit_player
+            player_match("edit")
         when "Delete player"
-            delete_player
+            player_match("delete")
         end
     end
 end

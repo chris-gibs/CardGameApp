@@ -84,9 +84,3 @@ def create_player
     sleep 1
     system 'clear'
 end
-def edit_player
-    
-end
-def delete_player
-    player_match("delete")
-end
