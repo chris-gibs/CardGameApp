@@ -20,6 +20,9 @@ def build_deck
     # Create deck array of card objects that include a name based on rank/suite
     # and a value relative to blackjack values
 
+
+    # Make a numbers version of the game only to start!!!!!!!!!!!!!!!!!!!!
+
     deck = []
     p deck
     deck.shuffle

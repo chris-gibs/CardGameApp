@@ -1,16 +1,13 @@
 # T1A3 Terminal Application
-Texas Holdem Card Game
+Card Game Application
 By Christopher Murray Gibson 2020
 
 # Index
-Create a table of links for ease of traversing the readme
+
 
 # Software Development Plan
-## Source Control Repository
-[Github Repo](https://github.com/chris-gibs/CardGameApp)
-
 ## Purpose
-The application will be a playable card game using Texas Holdem rules with a deck of the standard playing cards of Ranks and Suits.
+The application will be a playable card game using Blackjack rules with a deck of the standard playing cards of Ranks and Suits.
 
 It will solve people's need for entertainment. I am developing it both to fill that need and develop my ruby programming/testing skills.
 
@@ -53,11 +50,13 @@ User can get help information that describes what each feature does
 Incorrect inputs will be displayed to the user and will say the kind of input we are looking for
 
 ## Control Flow Diagram
-![Control Flow]()
+![Control Flow](../)
 
 ## Implementation Plan
-### Trello SDP Board
 [Trello Board](https://trello.com/b/YOqtuuu1/cmgterminalapp)
+
+## Source Control Repository
+[Github Repo](https://github.com/chris-gibs/CardGameApp)
 
 ## Help Documentation
 ### Installation
