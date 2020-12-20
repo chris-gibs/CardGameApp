@@ -150,7 +150,7 @@ def game_menu(player)
         case selection
         when "Hit"
             player["hand"] << draw_card
-            hand_value_check
+            hand_value_check(player["hand_value"])
         when "Stand"
             next
         when "Rules"

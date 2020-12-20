@@ -47,3 +47,16 @@ has_bet: false
 aces_count: 0
 lost: false
 blackjack: false
+---
+name: q
+password: q
+games: 0
+wins: 0
+score: 1000
+hand: []
+hand_value: 0
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false

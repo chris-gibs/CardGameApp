@@ -33,7 +33,10 @@ def game_loop
         @players_in_game.each do |player|
             player_bet(player)
             player["hand"] << draw_card << draw_card
-            display_game
+            p player["hand_value"]
+            player["hand_value"] = player["hand"].sum
+            p player["hand_value"]
+            display_game(player)
             game_menu(player)
             if player["lost"] == true
                 Player.lose
@@ -70,13 +73,19 @@ def hand_value_check(hand_value)
     case
     when hand_value > 21
         puts "Greater than!"
+        aces_count_check(player)
     when hand_value == 21
         puts "Blackjack!"
     when hand_value < 21
         puts "Less than!"
+        display_game(player)
     end
 end
-def display_game
+def aces_count_check(player)
+    player["hand"].include?(11)
+    puts "You've got an ace!"
+end
+def display_game(player)
     system 'clear'
-    puts "Your hand value: "
+    puts "Your hand value: #{player["hand_value"]}"
 end
