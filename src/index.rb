@@ -111,10 +111,10 @@ end
 # Menus
 # Edit Player Menu
 def edit_player_menu(player)
+    system "clear"
     selection = ""
     while selection != "Back"
         selection = menu_selection(@edit_player_menu_name, @edit_player_menu_options)
-        system "clear"
         case selection
         when "Name"
             player["name"] = get_name
@@ -129,10 +129,10 @@ def edit_player_menu(player)
 end
 # Leaderboard Menu
 def leaderboard_menu
+    system "clear"
     selection = ""
     while selection != "Back"
         selection = menu_selection(@leaderboard_menu_name, @leaderboard_menu_options)
-        system "clear"
         case selection
         when "Display Leaderboard"
             generate_leaderboard(nil)
@@ -143,14 +143,15 @@ def leaderboard_menu
 end
 # Game Menu
 def game_menu(player)
+    system "clear"
+    display_game(player)
     selection = ""
     while selection != "Back"
         selection = menu_selection(@new_game_menu_name, @new_game_menu_options)
-        system "clear"
         case selection
         when "Hit"
             player["hand"] << draw_card
-            hand_value_check(player["hand_value"])
+            hand_value_check(player)
         when "Stand"
             next
         when "Rules"
@@ -163,10 +164,10 @@ def game_menu(player)
 end
 # Player Menu
 def player_menu
+    system "clear"
     selection = ""
     while selection != "Back"
         selection = menu_selection(@player_menu_name, @player_menu_options)
-        system "clear"
         case selection
         when "Create new player"
             create_player
@@ -178,11 +179,11 @@ def player_menu
     end
 end
 # Main Menu
+system "clear"
+display_banner
 selection = ""
 while selection != "Exit"
-    display_banner
     selection = menu_selection(main_menu_name, main_menu_options)
-    system "clear"
     case selection
     when "Player Options"
         player_menu

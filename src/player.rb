@@ -10,7 +10,6 @@ class Player
         @wins = 0
         @score = 1000
         @hand = []
-        @hand_value = 0
         @bet = 0
         @has_bet = false
         @aces_count = 0
@@ -25,6 +24,7 @@ class Player
     end
     def self.lose
         puts "Better luck next time!"
+        @lost = true
         @games += 1
         @score = score_change
     end

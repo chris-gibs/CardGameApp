@@ -1,60 +1,82 @@
 ---
-name: test6
-password: e
-games: 2
-wins: 0
-score: 900
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-lost: false
-blackjack: false
----
-name: test3
-password: e
-games: 1
-wins: 1
-score: 1100
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-lost: false
-blackjack: false
----
-name: colourtest1
-password: e
-games: 0
-wins: 0
-score: 1000
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-lost: false
-blackjack: false
----
-name: Player 2
-password: q
-games: 0
-wins: 0
-score: 1000
-hand: []
-hand_value: 0
-bet: 0
-has_bet: false
-aces_count: 0
-lost: false
-blackjack: false
----
 name: q
 password: q
 games: 0
 wins: 0
 score: 1000
 hand: []
-hand_value: 0
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: test1
+password: e
+games: 0
+wins: 0
+score: 500
+hand: []
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: w
+password: w
+games: 0
+wins: 0
+score: 300
+hand: []
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: e
+password: e
+games: 0
+wins: 0
+score: 2000
+hand: []
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: r
+password: r
+games: 0
+wins: 0
+score: 1200
+hand: []
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: t
+password: t
+games: 0
+wins: 0
+score: 90
+hand: []
+bet: 0
+has_bet: false
+aces_count: 0
+lost: false
+blackjack: false
+---
+name: y
+password: y
+games: 0
+wins: 0
+score: 900
+hand: []
 bet: 0
 has_bet: false
 aces_count: 0

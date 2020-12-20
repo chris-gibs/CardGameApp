@@ -23,7 +23,9 @@ def number_of_players(option)
             error_message(@incorrect_input)
         end
     end
+    current_player = @players_in_game[0]
 end
+# Main Game
 def game_loop
     build_deck
     @dealer_hand << draw_card << draw_card
@@ -31,15 +33,13 @@ def game_loop
     while game_over == false
         # Player loop
         @players_in_game.each do |player|
+            player["lost"] = false
             player_bet(player)
             player["hand"] << draw_card << draw_card
-            p player["hand_value"]
-            player["hand_value"] = player["hand"].sum
-            p player["hand_value"]
-            display_game(player)
-            game_menu(player)
-            if player["lost"] == true
-                Player.lose
+            next_player = false
+            while next_player == false
+                game_menu(player)
+                # if player wins || loses then next player = true
             end
         end
     end
@@ -69,7 +69,8 @@ def player_bet(player)
         end
     end
 end
-def hand_value_check(hand_value)
+def hand_value_check(player)
+    hand_value = player["hand"].sum
     case
     when hand_value > 21
         puts "Greater than!"
@@ -78,14 +79,19 @@ def hand_value_check(hand_value)
         puts "Blackjack!"
     when hand_value < 21
         puts "Less than!"
-        display_game(player)
     end
 end
 def aces_count_check(player)
-    player["hand"].include?(11)
-    puts "You've got an ace!"
+    if player["hand"].include?(11)
+        puts "You've got an ace!"
+        # Change 11 to 1
+    else
+        player.lose
+        puts " You LOSE #{player["name"]}!"
+    end
 end
 def display_game(player)
     system 'clear'
-    puts "Your hand value: #{player["hand_value"]}"
+    puts "Dealer's first card: #{@dealer_hand[0]}"
+    puts "Your hand value:     #{player["hand"].sum}"
 end
