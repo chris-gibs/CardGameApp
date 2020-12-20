@@ -142,17 +142,17 @@ def leaderboard_menu
     end
 end
 # Game Menu
-def game_menu
+def game_menu(player)
     selection = ""
     while selection != "Back"
         selection = menu_selection(@new_game_menu_name, @new_game_menu_options)
         system "clear"
         case selection
         when "Hit"
-            draw_card()
-            hand_value_check()
+            player["hand"] << draw_card
+            hand_value_check
         when "Stand"
-            stand
+            next
         when "Rules"
             get_file("rules")
             puts "Press any key to continue..."
@@ -188,10 +188,7 @@ while selection != "Exit"
         player_menu
     when "New Game"
         number_of_players("new game")
-        build_deck
-        player_bet
-        draw_card
-        game_menu
+        game_loop
     when "Leaderboard"
         leaderboard_menu
     when "Help"
