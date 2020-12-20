@@ -20,22 +20,22 @@ require_relative './leaderboard'
 $pastel = Pastel.new
 $font = TTY::Font.new(:starwars)
 $prompt = TTY::Prompt.new(active_color: :blue)
-system 'clear'
+system "clear"
 
 # Menu Data
 main_menu_name = "Main menu:"
 main_menu_options = ["Player Options", "New Game", "Leaderboard", "Help", "Exit"]
 @player_menu_name = "Player options:"
 @player_menu_options = ["Create new player", "Edit player details", "Delete player", "Back"]
-@new_game_menu = "Choose an option:"
-@new_game_options = ["Hit", "Stand", "Rules", "Back"]
+@new_game_menu_name = "Choose an option:"
+@new_game_menu_options = ["Hit", "Stand", "Rules", "Back"]
 @leaderboard_menu_name = "Leaderboard Options:"
 @leaderboard_menu_options = ["Display Leaderboard", "Search Leaderboard", "Back"]
 @edit_player_menu_name = "Edit Player Options"
 @edit_player_menu_options = ["Name", "Password", "Back"]
 
 # Greeting
-def display_greeting
+def display_banner
     puts "#{$pastel.decorate($font.write("Black"), :black, :on_white, :bold)}\n#{$pastel.decorate($font.write("Jack"), :red, :on_white, :bold)}"
     sleep 1
 end
@@ -85,6 +85,7 @@ end
 def edit_player_menu(player)
     selection = ""
     while selection != "Back"
+        display_banner
         selection = menu_selection(@edit_player_menu_name, @edit_player_menu_options)
         system "clear"
         case selection
@@ -103,6 +104,7 @@ end
 def leaderboard_menu
     selection = ""
     while selection != "Back"
+        display_banner
         selection = menu_selection(@leaderboard_menu_name, @leaderboard_menu_options)
         system "clear"
         case selection
@@ -117,8 +119,8 @@ end
 def game_menu
     selection = ""
     while selection != "Back"
-        display_game
-        selection = menu_selection(@game_menu_name, @game_menu_options)
+        display_banner
+        selection = menu_selection(@new_game_menu_name, @new_game_menu_options)
         system "clear"
         case selection
         when "Hit"
@@ -127,6 +129,9 @@ def game_menu
             stand
         when "Rules"
             get_file("rules")
+            puts "Press any key to continue..."
+            gets
+            system "clear"
         end
     end
 end
@@ -134,6 +139,7 @@ end
 def player_menu
     selection = ""
     while selection != "Back"
+        display_banner
         selection = menu_selection(@player_menu_name, @player_menu_options)
         system "clear"
         case selection
@@ -149,15 +155,15 @@ end
 # Main Menu
 selection = ""
 while selection != "Exit"
-    display_greeting
+    display_banner
     selection = menu_selection(main_menu_name, main_menu_options)
     system "clear"
     case selection
     when "Player Options"
         player_menu
     when "New Game"
-        number_of_players
-        build_deck
+        #number_of_players
+        #build_deck
         game_menu
     when "Leaderboard"
         leaderboard_menu

@@ -1,8 +1,10 @@
 Blackjack Rules
-The aim of the game is to get as close to 21 in card value as possible
-without going over that number and to beat the dealer's hand.
-Card values start at 2 for a two of any suite, and increment up to 10 for tens and face cards.
-Aces value can be either 11 or 1 but start as 11 unless the players hand value is above 21.
+The aim of the game is to get as close to 21 in card value as possible without
+going over that number and to beat the dealer's hand.
+Card values start at 2 for a two of any suite, and increment up to 10 for tens
+and face cards.
+Aces value can be either 11 or 1 but start as 11 unless the players hand value
+is above 21.
 
 1. Place your bet using your score
 2. Ace values adjusted automatically if your hand value is over 21
