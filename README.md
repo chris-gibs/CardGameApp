@@ -24,16 +24,16 @@ By Christopher Murray Gibson 2020
 
 # Software Development Plan
 ## Purpose and Scope
-The application will be a playable card game using Blackjack rules. The minimum viable product will include a numbers only version of the game with no visual elements besides displaying the numbers.
+The application will be a playable card game using Blackjack rules. The minimum viable product will include a numbers only version of the game with no visual elements besides displaying the numbers. The application will also allow the user to create players, edit their details, delete them from the player file, and create leaderboard tables either of all players or a specific one. This way players can see who the best of the best are and be motivated to play more games.
 
 ## Problem
-It will solve people's need for entertainment. I am developing it both to fill that need and develop my ruby programming/testing skills.
+It will solve people's need for entertainment while working within terminals. I am developing it both to fill that need and develop my ruby programming/testing skills.
 
 ## Target Audience
-The target audience are those that enjoy card games of this nature.
+The target audience are those that enjoy card games of this nature, especially developers that use terminal a lot and need a break from their work.
 
 ## How it is Used
-A member of the target audience will use this app to entertain themselves by playing games of Blackjack either solo or with other players against the dealer on the same machine. They can navigate the menus/options using their arrow and Enter keys. They will be able to create players by giving them a name and password, as well as editing or deleting those details of a given player after a check. They can view the leaderboard for all players or a specific one. Finally they can play a simplified game of Blackjack.
+A member of the target audience will use this app to entertain themselves by playing games of Blackjack either solo or with other players against the dealer on the same machine. They can navigate the menus/options using their arrow and Enter keys. They will be able to create players by giving them a name and password, as well as editing or deleting those details of a given player after a check. They can view the leaderboard for all players or a specific one. Finally they can play a simplified game of Blackjack either solo or with others against a dealers hand. They use their score to make bets. If they lose their bet is forfeit, otherwise they gain back double. If they get 21 on the first go they get back double and a half and win automatically.
 
 # Features
 ## Player Features
@@ -69,11 +69,12 @@ Shows text from a help file highlighting controls for the program and types of i
 Shows text from a rules file highlighting the rules of the card game.
 
 # User Interaction Outline
-User navigates menus using arrows and Enter keys. A built in prompt message explains this on each menu. If input by the user is required the applicaiton will prompt the user for the required input and run a check on the input. User can access help/rules files that describe what to do should they need it. If a user enters an incorrect input they will receive a red coloured text message stating that fact. They are sent back to the menu they were on previously to try again. Green coloured text messages indicate a successful input.
+User navigates menus using arrows and Enter keys. A built in prompt message explains this on each menu. If input by the user is required the application will prompt the user for the required input and run a check on the input. User can access help/rules files that describe what to do should they need it. If a user enters an incorrect input they will receive a red coloured text message stating that fact. They are sent back to the menu they were on previously to try again. Green coloured text messages indicate a successful input.
 
 # Help Documentation
 ## Installation
 
+type ./run_app.sh
 ## Required Dependencies
 ### Gems
 gem "pastel", "~> 0.8.0"
