@@ -75,8 +75,20 @@ User navigates menus using arrows and Enter keys. A built in prompt message expl
 ## Installation
 
 ## Required Dependencies
+### Gems
+gem "pastel", "~> 0.8.0"
+gem "rspec", "~> 3.10"
+gem "tty-color", "~> 0.6.0"
+gem "tty-cursor", "~> 0.7.1"
+gem "tty-font", "~> 0.5.0"
+gem "tty-prompt", "~> 0.23.0"
+gem "tty-reader", "~> 0.9.0"
+gem "tty-screen", "~> 0.8.1"
+gem "tty-table", "~> 0.12.0"
+gem "wisper", "~> 2.0"
 
 ## System/Hardware Requirements
+Most systems and hardware configurations with access to the terminal and Ruby using either Linux/Mac/Windows operating systems should be sufficient to run this program.
 
 # Control Flow Diagram
 ![T1A3_ControlFlowDiagram](./docs/T1A3_ControlFlowDiagram.jpg)
@@ -84,6 +96,8 @@ User navigates menus using arrows and Enter keys. A built in prompt message expl
 # Implementation Plan
 Below is a link to my Trello Board for the development of this terminal application:
 [Trello Board](https://trello.com/b/YOqtuuu1/cmgterminalapp)
+
+Quite a bit has changed since that initial design. A lot of the methods have changed but the overall features are still in place.
 
 # Source Control Repository
 Below is a link to my Github repository for the source control management of this terminal application:
