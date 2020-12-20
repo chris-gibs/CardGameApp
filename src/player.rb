@@ -37,6 +37,7 @@ def player_match(option)
     pass = get_pass
     system 'clear'
     working_message(@player_searching)
+    # Gets the full player array from a file
     get_player_data(nil)
     # Find out where in our players from file array the player object is located
     index = @players_from_file.index {|player| player["name"] == name && player["password"] == pass}
@@ -53,7 +54,8 @@ def player_match(option)
             @players_from_file.delete_at(index)
             change_player_data
         when "new game"
-            return index
+            @players_in_game << @players_from_file[index]
+            number = @players_in_game.length
         end
     else
         error_message(@incorrect_player_details)

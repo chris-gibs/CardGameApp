@@ -6,26 +6,25 @@ dealers_hand = []
 # Game methods
 def number_of_players(option)
     # Loops until we get the number we're looking for
-    while false
+    continue = false
+    while continue == false
         puts "Please enter number of players (Between 1 and 4): "
         number_of_players = gets.chomp.to_i
         if number_of_players.between?(1, 4)
             success_message(@correct_input)
             # Loops for each player confirming their details and
-            #adding their object to the Players_in_game array
-            number = number_of_players
-            until number == 0
-                player_match(option)
-                @players_in_game << @players_from_file[index]
-                number -= 1
+            #adding their object to the players in game array
+            number = 0
+            until number == number_of_players
+                number = player_match(option)
             end
-            true
+            continue = true
         else
             error_message(@incorrect_input)
         end
     end
-    p number_of_players
-    return number_of_players
+    current_player = @players_in_game[0]
+    p @players_in_game
 end
 def build_deck
     # Create new deck array of card values and shuffle

@@ -188,8 +188,9 @@ while selection != "Exit"
         player_menu
     when "New Game"
         number_of_players("new game")
-        #current_player
         build_deck
+        player_bet
+        draw_card
         game_menu
     when "Leaderboard"
         leaderboard_menu

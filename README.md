@@ -88,7 +88,7 @@ gem "tty-table", "~> 0.12.0"
 gem "wisper", "~> 2.0"
 
 ## System/Hardware Requirements
-Most systems and hardware configurations with access to the terminal and Ruby using either Linux/Mac/Windows operating systems should be sufficient to run this program.
+Most systems and hardware configurations with access to the bash terminal and Ruby version 2.7.2 using either Linux/Mac/Windows operating systems should be sufficient to run this program. This program was originally tested on a Ubuntu Linux distro.
 
 # Control Flow Diagram
 ![T1A3_ControlFlowDiagram](./docs/T1A3_ControlFlowDiagram.jpg)
